@@ -33,6 +33,7 @@ function LoginForm() {
       <input
         type="text"
         name="email"
+        class="form-control"
         value={email}
         onChange={e => setEmail(e.target.value)}
       />
