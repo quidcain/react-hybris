@@ -15,5 +15,18 @@ module.exports = {
     },
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
+    {
+      resolve: 'gatsby-plugin-alias-imports',
+      options: {
+        alias: {
+          '@components': 'src/components',
+          '@pages': 'src/pages',
+          '@styles': 'src/styles',
+        },
+        extensions: [
+          'js',
+        ],
+      }
+    }
   ],
 }

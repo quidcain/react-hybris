@@ -36,7 +36,7 @@ module.exports = {
         "array-element-newline": [2, "consistent"],
         "block-spacing": 2,
         "brace-style": 2,
-        "camelcase": 2,
+        "camelcase": [2, { allow: ["grant_type"] }],
         "comma-dangle": [2, "always-multiline"],
         "comma-spacing": 2,
         "comma-style": 2,
