@@ -29,22 +29,28 @@ function LoginForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input
-        type="text"
-        name="email"
-        class="form-control"
-        value={email}
-        onChange={e => setEmail(e.target.value)}
-      />
-      <input
-        type="text"
-        name="passord"
-        value={password}
-        onChange={e => setPassword(e.target.value)}
-      />
-      <input type="submit" />
-    </form>
+    <div class="container mb-3">
+      <form onSubmit={handleSubmit}>
+        <input
+          type="text"
+          name="email"
+          class="form-control mb-3"
+          value={email}
+          onChange={e => setEmail(e.target.value)}
+        />
+        <input
+          type="password"
+          name="passord"
+          value={password}
+          class="form-control mb-3"
+          onChange={e => setPassword(e.target.value)}
+        />
+        <input
+          type="submit"
+          class="btn btn-primary"
+        />
+      </form>
+    </div>
   );
 }
 
