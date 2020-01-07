@@ -1,11 +1,13 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import login from '@api/login';
+import getCurrentUser from '@api/getCurrentUser';
 
 function LoginForm() {
   const { handleSubmit, register, errors } = useForm({ mode: 'onBlur' });
   const onSubmit = values => {
-    login(values);
+    login(values)
+      .then(() => getCurrentUser());
   };
 
   return (

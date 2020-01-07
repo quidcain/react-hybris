@@ -1,4 +1,3 @@
-
 import { normalizeErrors } from '@api/apiUtils';
 
 function login({ email, password }) {
@@ -17,7 +16,7 @@ function login({ email, password }) {
   })
     .then(normalizeErrors)
     .then(res => res.json())
-    .then(res => console.log(res));
+    .then(({ access_token }) => localStorage.setItem('token', access_token));
 }
 
 
