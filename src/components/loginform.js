@@ -1,23 +1,6 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
-
-function login({ email, password }) {
-  return fetch('http://localhost:9001/authorizationserver/oauth/token?client_id=mytest&client_secret=123', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
-    },
-    body: Object.entries({
-      grant_type: 'password',
-      scope: 'basic',
-      username: email,
-      password,
-    }).map(([key, value]) => `${key}=${value}`)
-      .join('&'),
-  })
-    .then(res => res.json())
-    .then(res => console.log(res));
-}
+import login from '@api/login';
 
 function LoginForm() {
   const { handleSubmit, register, errors } = useForm({ mode: 'onBlur' });
