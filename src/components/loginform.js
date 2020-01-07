@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { useForm } from 'react-hook-form';
 
-function login(email, password) {
+function login({ email, password }) {
   return fetch('http://localhost:9001/authorizationserver/oauth/token?client_id=mytest&client_secret=123', {
     method: 'POST',
     headers: {
@@ -18,33 +19,40 @@ function login(email, password) {
     .then(res => console.log(res));
 }
 
-
 function LoginForm() {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-
-  const handleSubmit = e => {
-    e.preventDefault();
-    login(email, password);
+  const { handleSubmit, register, errors } = useForm({ mode: 'onBlur' });
+  const onSubmit = values => {
+    login(values);
   };
 
   return (
     <div className="container mb-3">
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          name="email"
-          className="form-control mb-3"
-          value={email}
-          onChange={e => setEmail(e.target.value)}
-        />
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <div className="form-group mb-3">
+          <input
+            type="text"
+            name="email"
+            className="form-control"
+            ref={register({
+              required: 'Required',
+              pattern: {
+                value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
+                message: 'invalid email address',
+              },
+            })}
+          />
+          <span className="form-text text-danger">
+            {errors.email && errors.email.message}
+          </span>
+        </div>
+
         <input
           type="password"
-          name="passord"
-          value={password}
+          name="password"
           className="form-control mb-3"
-          onChange={e => setPassword(e.target.value)}
+          ref={register({})}
         />
+
         <input
           type="submit"
           className="btn btn-primary"
