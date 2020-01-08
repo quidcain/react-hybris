@@ -1,8 +1,11 @@
 import { Link } from 'gatsby';
 import PropTypes from 'prop-types';
 import React from 'react';
+import { connect } from 'react-redux';
+import selectors from '@app/state/selectors';
 
-const Header = ({ siteTitle }) => (
+
+const Header = ({ siteTitle, user }) => (
   <header
     style={{
       background: 'rebeccapurple',
@@ -24,7 +27,7 @@ const Header = ({ siteTitle }) => (
             textDecoration: 'none',
           }}
         >
-          {siteTitle}
+          {siteTitle} {selectors.getUserName(user)}
         </Link>
       </h1>
     </div>
@@ -39,4 +42,8 @@ Header.defaultProps = {
   siteTitle: '',
 };
 
-export default Header;
+const mapStateToProps = ({ user }) => ({
+  user,
+});
+
+export default connect(mapStateToProps)(Header);

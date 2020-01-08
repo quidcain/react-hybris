@@ -10,8 +10,7 @@ function getCurrentUser() {
     headers: isTokenAvailable() ? getAuthorizationHeader() : {},
   })
     .then(normalizeErrors)
-    .then(res => res.json())
-    .then(res => console.log(res));
+    .then(res => res.json());
 }
 
 export default getCurrentUser;

@@ -1,13 +1,16 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
+import { connect } from 'react-redux';
 import login from '@api/login';
 import getCurrentUser from '@api/getCurrentUser';
+import { setUser } from '@app/state/actionCreators';
 
-function LoginForm() {
+function LoginForm({ setUser }) {
   const { handleSubmit, register, errors } = useForm({ mode: 'onBlur' });
   const onSubmit = values => {
     login(values)
-      .then(() => getCurrentUser());
+      .then(() => getCurrentUser())
+      .then(user => setUser(user));
   };
 
   return (
@@ -47,4 +50,11 @@ function LoginForm() {
   );
 }
 
-export default LoginForm;
+const mapDispatchToProps = dispatch => ({
+  setUser: user => dispatch(setUser(user)),
+});
+
+export default connect(
+  null,
+  mapDispatchToProps,
+)(LoginForm);

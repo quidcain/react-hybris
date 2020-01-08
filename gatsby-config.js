@@ -23,6 +23,7 @@ module.exports = {
           '@pages': 'src/pages',
           '@styles': 'src/styles',
           '@api': 'src/api',
+          '@app': 'src',
         },
         extensions: [
           'js',
