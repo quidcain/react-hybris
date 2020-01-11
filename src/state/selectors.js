@@ -1,5 +1,11 @@
-const getUserName = user => (user || {}).name;
+const getUser = state => state.user || {};
+const getUserName = state => getUser(state).name;
+const isUserFetched = state => !!getUser(state).uid;
 
-export default {
+const getToken = state => state.token;
+
+export {
   getUserName,
+  isUserFetched,
+  getToken,
 };

@@ -16,7 +16,7 @@ function login({ email, password }) {
   })
     .then(normalizeErrors)
     .then(res => res.json())
-    .then(({ access_token }) => localStorage.setItem('token', access_token));
+    .then(({ access_token }) => access_token);
 }
 
 

@@ -4,14 +4,11 @@ function normalizeErrors(response) {
     : Promise.reject(response);
 }
 
-const getAuthorizationHeader = () => ({
-  authorization: `Bearer ${localStorage.getItem('token')}`,
+const getAuthorizationHeader = token => ({
+  authorization: `Bearer ${token}`,
 });
-
-const isTokenAvailable = () => localStorage.getItem('token') != null;
 
 export {
   normalizeErrors,
   getAuthorizationHeader,
-  isTokenAvailable,
 };
