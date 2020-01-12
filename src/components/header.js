@@ -26,21 +26,31 @@ const Header = ({
           padding: '1.45rem 1.0875rem',
         }}
       >
-        <h1 style={{ margin: 0 }} className="d-flex space-between">
-          <Link
-            to="/"
-            className="header-text no-decor"
-          >
-            {siteTitle}
-          </Link>
-        </h1>
-        <div className="clearfix">
-          <span className="float-right">
-            <Logout />
-          </span>
-          <span className="header-text float-right gap">
-            {userName}
-          </span>
+        <div className="container">
+          <div className="row">
+            <div className="col-8">
+              <h1 style={{ margin: 0 }}>
+                <Link
+                  to="/"
+                  className="header-text no-decor"
+                >
+                  {siteTitle}
+                </Link>
+              </h1>
+            </div>
+            <div className="col-4 d-flex">
+              <div className="container d-flex justify-content-end">
+                <div className="row align-items-center">
+                  <div className="col-sm text-nowrap header-text">
+                    {userName}
+                  </div>
+                  <div className="col-sm align-items-center">
+                    <Logout />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </header>
