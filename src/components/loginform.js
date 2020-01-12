@@ -28,12 +28,17 @@ function LoginForm({ login }) {
           </span>
         </div>
 
-        <input
-          type="password"
-          name="password"
-          className="form-control mb-3"
-          ref={register({})}
-        />
+        <div className="form-group mb-3">
+          <input
+            type="password"
+            name="password"
+            className="form-control mb-3"
+            ref={register({ required: 'Required' })}
+          />
+          <span className="form-text text-danger">
+            {errors.password && errors.password.message}
+          </span>
+        </div>
 
         <input
           type="submit"
