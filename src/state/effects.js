@@ -7,7 +7,7 @@ import {
   clearUser,
 } from '@app/state/actionCreators';
 import { isUserFetched, getToken } from '@app/state/selectors';
-import { removeTokenFromStorage } from '@app/utils';
+import { removeTokenFromStorage, showSnackbar } from '@app/utils';
 
 const setToken = token => dispatch => {
   dispatch(_setToken(token));
@@ -31,7 +31,9 @@ const fetchAndSetCurrentUser = token => dispatch => (
 const login = values => dispatch => {
   _login(values)
     .then(token => setToken(token)(dispatch))
-    .then(token => fetchAndSetCurrentUser(token)(dispatch));
+    .then(token => fetchAndSetCurrentUser(token)(dispatch))
+    .then(() => showSnackbar('Successfully logged in!'))
+    .catch(() => showSnackbar('Wrong credentials :('));
 };
 
 const getUserIfToken = () => (dispatch, getState) => {
