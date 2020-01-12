@@ -25,17 +25,19 @@ const Header = ({
           padding: '1.45rem 1.0875rem',
         }}
       >
-        <h1 style={{ margin: 0 }}>
+        <h1 style={{ margin: 0 }} className="d-flex space-between">
           <Link
             to="/"
-            style={{
-              color: 'white',
-              textDecoration: 'none',
-            }}
+            className="header-text no-decor"
           >
-            {siteTitle} {userName}
+            {siteTitle}
           </Link>
         </h1>
+        <div className="clearfix">
+          <span className="header-text float-right">
+            {userName}
+          </span>
+        </div>
       </div>
     </header>
   );
