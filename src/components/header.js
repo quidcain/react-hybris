@@ -45,6 +45,8 @@ const Header = ({
 
 Header.propTypes = {
   siteTitle: PropTypes.string,
+  userName: PropTypes.string,
+  getUserIfToken: PropTypes.func,
 };
 
 Header.defaultProps = {
