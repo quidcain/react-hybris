@@ -7,6 +7,7 @@ import {
   clearUser,
 } from '@app/state/actionCreators';
 import { isUserFetched, getToken } from '@app/state/selectors';
+import { removeTokenFromStorage } from '@app/utils';
 
 const setToken = token => dispatch => {
   dispatch(_setToken(token));
@@ -44,6 +45,7 @@ const getUserIfToken = () => (dispatch, getState) => {
 const logout = () => dispatch => {
   dispatch(clearToken());
   dispatch(clearUser());
+  removeTokenFromStorage();
 };
 
 export {
