@@ -1,5 +1,5 @@
-import _login from '@api/login';
-import getCurrentUser from '@api/getCurrentUser';
+import _login from '@app/api/login';
+import getCurrentUser from '@app/api/getCurrentUser';
 import { setUser, setToken as _setToken } from '@app/state/actionCreators';
 import { isUserFetched, getToken } from '@app/state/selectors';
 

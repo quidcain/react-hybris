@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from 'gatsby';
 
-import Layout from '@components/layout';
-import Seo from '@components/seo';
-import LoginForm from '@components/loginform';
+import Layout from '@app/components/layout';
+import Seo from '@app/components/seo';
+import LoginForm from '@app/components/loginform';
 
 const LoginPage = () => (
   <Layout>

@@ -1,4 +1,4 @@
-import { normalizeErrors } from '@api/apiUtils';
+import { normalizeErrors } from '@app/api/apiUtils';
 
 function login({ email, password }) {
   return fetch('http://localhost:9001/authorizationserver/oauth/token?client_id=mytest&client_secret=123', {

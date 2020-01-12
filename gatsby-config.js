@@ -19,10 +19,6 @@ module.exports = {
       resolve: 'gatsby-plugin-alias-imports',
       options: {
         alias: {
-          '@components': 'src/components',
-          '@pages': 'src/pages',
-          '@styles': 'src/styles',
-          '@api': 'src/api',
           '@app': 'src',
         },
         extensions: [

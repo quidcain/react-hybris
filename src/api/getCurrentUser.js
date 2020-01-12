@@ -1,7 +1,7 @@
 import {
   normalizeErrors,
   getAuthorizationHeader,
-} from '@api/apiUtils';
+} from '@app/api/apiUtils';
 
 function getCurrentUser(token) {
   return fetch('http://localhost:9001/exploringcommercewebservices/v2/electronics/users/current?fields=DEFAULT', {
