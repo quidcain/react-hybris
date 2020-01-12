@@ -4,8 +4,6 @@
   color: white;
 }
 
-.no-decor {
-  text-decoration: none;
+.header-text:hover {
+  color: white;
 }
-
-

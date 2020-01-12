@@ -12,12 +12,12 @@ const Logout = ({
   };
   if(token) {
     return (
-      <span
+      <button
         onClick={handleClick}
-        className="header-text"
+        className="header-text text-nowrap btn btn-link"
       >
         log out
-      </span>
+      </button>
     );
   }
   return null;
