@@ -4,6 +4,7 @@ import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { getUserName } from '@app/state/selectors';
 import { getUserIfToken } from '@app/state/effects';
+import Logout from '@app/components/logout';
 
 const Header = ({
   siteTitle,
@@ -34,7 +35,10 @@ const Header = ({
           </Link>
         </h1>
         <div className="clearfix">
-          <span className="header-text float-right">
+          <span className="float-right">
+            <Logout />
+          </span>
+          <span className="header-text float-right gap">
             {userName}
           </span>
         </div>

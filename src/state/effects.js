@@ -1,6 +1,11 @@
 import _login from '@app/api/login';
 import getCurrentUser from '@app/api/getCurrentUser';
-import { setUser, setToken as _setToken } from '@app/state/actionCreators';
+import {
+  setUser,
+  setToken as _setToken,
+  clearToken,
+  clearUser,
+} from '@app/state/actionCreators';
 import { isUserFetched, getToken } from '@app/state/selectors';
 
 const setToken = token => dispatch => {
@@ -12,6 +17,14 @@ const setToken = token => dispatch => {
 const fetchAndSetCurrentUser = token => dispatch => (
   getCurrentUser(token)
     .then(user => dispatch(setUser(user)))
+    .catch(e => {
+      if(e.message == 'Failed to fetch') {
+        console.error(e);
+      }
+      if(e instanceof Response) {
+        e.status == 401 && console.log('wrong token');
+      }
+    })
 );
 
 const login = values => dispatch => {
@@ -28,7 +41,13 @@ const getUserIfToken = () => (dispatch, getState) => {
   }
 };
 
+const logout = () => dispatch => {
+  dispatch(clearToken());
+  dispatch(clearUser());
+};
+
 export {
   login,
   getUserIfToken,
+  logout,
 };
